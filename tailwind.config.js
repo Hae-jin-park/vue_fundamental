@@ -4,5 +4,8 @@ module.exports = {
   theme: {
     extend: {},
   },
+  fontFamily: {
+    sans: ["Noto Sans KR", "Outfit", "sans-serif"],
+  },
   plugins: [require("tw-elements/dist/plugin")],
 };
