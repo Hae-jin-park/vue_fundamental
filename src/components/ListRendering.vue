@@ -33,10 +33,15 @@
         >
           <li
             class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"
-            v-for="(value, key, index) in fruits2"
+            v-for="(value, key) in fruits2"
             :key="key"
           >
-            {{ value }} | {{ key }} | {{ index + 1 }}
+            {{ value }} | {{ key }} | {{ index }}
+            <input
+              type="text"
+              v-model="fruits2[key]"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            />
           </li>
         </ul>
       </div>
