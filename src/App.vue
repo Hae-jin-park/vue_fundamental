@@ -2,26 +2,26 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
 
-    <ListRendering />
+    <!--<ListRendering />-->
 
-    <FormBinding />
+    <!--<FormBinding />-->
+    <IfRenderingView />
   </div>
 </template>
 
 <script>
-//import LifeCycle from "./components/LifeCycle.vue";
-
-///import DataBinding01 from "./components/DataBinding01.vue";
-import ListRendering from "./components/ListRendering.vue";
+//import ListRendering from "./components/ListRendering.vue";
 
 //import DataBinding01 from "./components/DataBinding01.vue";
-import FormBinding from "./components/FormBinding.vue";
+//dimport FormBinding from "./components/FormBinding.vue";
+import IfRenderingView from "./components/IfRenderingView.vue";
 export default {
   name: "App",
   components: {
     //DataBinding01,
-    ListRendering,
-    FormBinding,
+    //ListRendering,
+    //FormBinding,
+    IfRenderingView,
   },
 };
 </script>
