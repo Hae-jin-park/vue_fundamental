@@ -5,7 +5,9 @@
     <!--<ListRendering />-->
 
     <!--<FormBinding />-->
-    <IfRenderingView />
+    <!-- <ChangeEventView /> -->
+    <!-- <KeyEventView /> -->
+    <TodoList />
   </div>
 </template>
 
@@ -14,14 +16,22 @@
 
 //import DataBinding01 from "./components/DataBinding01.vue";
 //dimport FormBinding from "./components/FormBinding.vue";
-import IfRenderingView from "./components/IfRenderingView.vue";
+//import IfRenderingView from "./components/IfRenderingView.vue";
+// import ClickEventView from "./views/ClickEventView.vue";
+// import ChangeEventView from "./views/ChangeEventView.vue";
+// import KeyEventView from "./views/KeyEventView.vue";
+import TodoList from "./views/TodoList.vue";
 export default {
   name: "App",
   components: {
+    TodoList,
+    // KeyEventView,
+    // ChangeEventView,
     //DataBinding01,
     //ListRendering,
     //FormBinding,
-    IfRenderingView,
+    // ClickEventView,
+    //IfRenderingView,
   },
 };
 </script>
