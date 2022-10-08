@@ -1,18 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <DataBinding01 />
+    <ListRendering />
   </div>
 </template>
 
 <script>
 //import LifeCycle from "./components/LifeCycle.vue";
-import DataBinding01 from "./components/DataBinding01.vue";
+///import DataBinding01 from "./components/DataBinding01.vue";
+import ListRendering from "./components/ListRendering.vue";
 
 export default {
   name: "App",
   components: {
-    DataBinding01,
+    //DataBinding01,
+    ListRendering,
   },
 };
 </script>
