@@ -5,7 +5,8 @@
     <!--<ListRendering />-->
 
     <!--<FormBinding />-->
-    <IfRenderingView />
+    <!-- <IfRenderingView /> -->
+    <TodoList />
   </div>
 </template>
 
@@ -14,14 +15,16 @@
 
 //import DataBinding01 from "./components/DataBinding01.vue";
 //dimport FormBinding from "./components/FormBinding.vue";
-import IfRenderingView from "./components/IfRenderingView.vue";
+// import IfRenderingView from "./components/IfRenderingView.vue";
+import TodoList from "./views/TodoList.vue";
 export default {
   name: "App",
   components: {
     //DataBinding01,
     //ListRendering,
     //FormBinding,
-    IfRenderingView,
+    // IfRenderingView,
+    TodoList,
   },
 };
 </script>
