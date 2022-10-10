@@ -103,8 +103,6 @@ export default {
   mounted: function () {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position.coords.latitude);
-        console.log(position.coords.longitude);
         this.getStreetAddressFrom(
           position.coords.latitude,
           position.coords.longitude
@@ -127,6 +125,9 @@ export default {
         comment: this.comment,
         createdAt: new Date(),
         address: this.address,
+      });
+      this.todoList.sort(function (a, b) {
+        return a.createdAt - b.createdAt;
       });
       this.comment = "";
       console.log(this.todoList);
@@ -165,6 +166,7 @@ export default {
         if (data.error_message) {
           console.log(data.error_message);
         } else {
+          console.log(data);
           this.address = data.results[0].formatted_address;
         }
       } catch (error) {
