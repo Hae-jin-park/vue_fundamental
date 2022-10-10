@@ -1,7 +1,7 @@
 <template>
   <div id="main_container">
     <div class="grid grid-cols-1">
-      <div id="map"></div>
+      <div id="map">{{ locPosition }}</div>
       <div
         class="bg-white rounded-md m-10 px-4 py-4 border-2 border-emerald-600"
       >
@@ -125,12 +125,13 @@ export default {
           lng = position.coords.longitude;
           var latlng = new window.kakao.maps.LatLng(lat, lng);
           var geocoder = new window.kakao.maps.services.Geocoder();
-          var callback = function (result, status) {
+          function doAction(result, status) {
             if (status === window.kakao.maps.services.Status.OK) {
               console.log(result);
             }
-          };
-          geocoder.coord2Address(latlng.getLng(), latlng.getLat(), callback);
+          }
+          geocoder.coord2Address(latlng.getLng(), latlng.getLat(), doAction);
+          //return ret_value;
         },
         (error) => {
           console.log(error.message);
