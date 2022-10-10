@@ -3,3 +3,19 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Outfit:wght@400;700&display=swap");
+
+.b-radius-30 {
+  border-radius: 30px;
+}
+.v-align-middle-non-text {
+  display: flex;
+  align-items: center;
+}
+.v-align-middle-img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.v-align-middle-text {
+  vertical-align: middle;
+}
