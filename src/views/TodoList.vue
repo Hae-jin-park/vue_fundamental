@@ -5,6 +5,7 @@
         class="bg-white rounded-md m-10 px-4 py-4 border-2 border-emerald-600"
       >
         <h1 class="text-3xl font-bold">TODO List</h1>
+        <div>{{ address }}</div>
         <div class="flex flex-row">
           <input
             type="text"
@@ -90,12 +91,29 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       todoList: [],
       comment: "",
+      address: "",
     };
+  },
+  mounted: function () {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+        this.getStreetAddressFrom(
+          position.coords.latitude,
+          position.coords.longitude
+        );
+      },
+      (error) => {
+        console.log(error.message);
+      }
+    );
   },
   methods: {
     apply() {
@@ -108,8 +126,10 @@ export default {
         renderTypeShow: 1,
         comment: this.comment,
         createdAt: new Date(),
+        address: this.address,
       });
       this.comment = "";
+      console.log(this.todoList);
     },
     deleteTodo(index) {
       if (
@@ -129,6 +149,26 @@ export default {
         console.log(this.comment);
         //this.todoList[index].comment = this.comment;
         this.todoList[index].renderTypeShow = 1;
+      }
+    },
+    async getStreetAddressFrom(lat, long) {
+      try {
+        var { data } = await axios.get(
+          "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+            lat +
+            "," +
+            long +
+            "&key=" +
+            process.env.VUE_APP_API_KEY +
+            "&language=ko"
+        );
+        if (data.error_message) {
+          console.log(data.error_message);
+        } else {
+          this.address = data.results[0].formatted_address;
+        }
+      } catch (error) {
+        console.log(error.message);
       }
     },
   },
