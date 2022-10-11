@@ -91,7 +91,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
@@ -100,19 +99,7 @@ export default {
       address: "",
     };
   },
-  mounted: function () {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.getStreetAddressFrom(
-          position.coords.latitude,
-          position.coords.longitude
-        );
-      },
-      (error) => {
-        console.log(error.message);
-      }
-    );
-  },
+
   methods: {
     apply() {
       if (!this.comment) {
@@ -150,27 +137,6 @@ export default {
         console.log(this.comment);
         //this.todoList[index].comment = this.comment;
         this.todoList[index].renderTypeShow = 1;
-      }
-    },
-    async getStreetAddressFrom(lat, long) {
-      try {
-        var { data } = await axios.get(
-          "https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-            lat +
-            "," +
-            long +
-            "&key=" +
-            process.env.VUE_APP_API_KEY +
-            "&language=ko"
-        );
-        if (data.error_message) {
-          console.log(data.error_message);
-        } else {
-          console.log(data);
-          this.address = data.results[0].formatted_address;
-        }
-      } catch (error) {
-        console.log(error.message);
       }
     },
   },
