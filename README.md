@@ -75,7 +75,7 @@ createApp(App).mount('#app')
 
 예시코드
 
-'<h1 class="text-3xl font-bold underline">{{ msg }}</h1>'
+'<pre><h1 class="text-3xl font-bold underline">{{ msg }}</h1></pre>
 
 7.서버 띄워 확인한다.
 
