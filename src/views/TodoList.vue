@@ -34,7 +34,7 @@
               <div class="w-1/12">
                 <p class="hidden">{{ todo.renderTypeShow }}</p>
                 <img
-                  class="h-6"
+                  class="h-6 mx-auto"
                   src="../assets/new_icon.png"
                   v-show="
                     todo.createdAt.getTime() + 1000 * 10 > new Date().getTime()
@@ -46,34 +46,37 @@
                 <p v-show="todo.renderTypeShow === 0">
                   <input
                     type="text"
-                    class="form-control block w-11/12 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    class="form-control block w-11/12 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     v-model="todo.comment"
                   />
                 </p>
               </div>
               <div class="w-1/12">
                 <p v-show="todo.renderTypeShow === 1">
-                  <img
+                  <button
+                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-orange-400 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-orange-400 focus:border-blue-600 focus:outline-none"
                     @click="updateSwitch(index)"
-                    class="h-4"
-                    src="../assets/edit.png"
-                  />
+                  >
+                    <img class="h-4 mx-auto" src="../assets/edit.png" />
+                  </button>
                 </p>
                 <p v-show="todo.renderTypeShow === 0">
-                  <img
+                  <button
+                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-orange-400 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-orange-400 focus:border-blue-600 focus:outline-none"
                     @click="updateTodo(index)"
-                    class="h-4"
-                    src="../assets/check.png"
-                  />
+                  >
+                    <img class="h-4 mx-auto" src="../assets/check.png" />
+                  </button>
                 </p>
               </div>
               <div class="w-1/12">
                 <p v-show="todo.renderTypeShow === 1">
-                  <img
+                  <button
+                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-sky-700 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-sky-700 focus:border-blue-600 focus:outline-none"
                     @click="deleteTodo(index)"
-                    class="h-4"
-                    src="../assets/bin.png"
-                  />
+                  >
+                    <img class="h-4 mx-auto" src="../assets/bin.png" />
+                  </button>
                 </p>
               </div>
             </li>
