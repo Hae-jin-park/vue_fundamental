@@ -11,6 +11,7 @@
             type="text"
             class="form-control block w-3/4 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-3 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
             v-model="comment"
+            @keyup.enter="apply"
             ref="input_ref"
             placeholder="todoList를 입력하시오~"
           />
@@ -47,6 +48,7 @@
                   <input
                     type="text"
                     class="form-control block w-11/12 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    ref="input_ref_2"
                     v-model="todo.comment"
                   />
                 </p>
@@ -62,7 +64,7 @@
                 </p>
                 <p v-show="todo.renderTypeShow === 0">
                   <button
-                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-orange-400 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-orange-400 focus:border-blue-600 focus:outline-none"
+                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-green-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-green-600 focus:border-blue-600 focus:outline-none"
                     @click="updateTodo(index)"
                   >
                     <img class="h-4 mx-auto" src="../assets/check.png" />
@@ -72,10 +74,18 @@
               <div class="w-1/12">
                 <p v-show="todo.renderTypeShow === 1">
                   <button
-                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-sky-700 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-sky-700 focus:border-blue-600 focus:outline-none"
+                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-red-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-red-600 focus:border-blue-600 focus:outline-none"
                     @click="deleteTodo(index)"
                   >
                     <img class="h-4 mx-auto" src="../assets/bin.png" />
+                  </button>
+                </p>
+                <p v-show="todo.renderTypeShow === 0">
+                  <button
+                    class="form-control block text-base font-normal w-auto p-1 mx-auto text-white bg-red-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-red-600 focus:border-blue-600 focus:outline-none"
+                    @click="discardChange(index)"
+                  >
+                    <img class="h-4 mx-auto" src="../assets/close.png" />
                   </button>
                 </p>
               </div>
@@ -100,6 +110,7 @@ export default {
       todoList: [],
       comment: "",
       address: "",
+      ex_comment: "",
     };
   },
 
@@ -115,6 +126,7 @@ export default {
         comment: this.comment,
         createdAt: new Date(),
         address: this.address,
+        ex_comment: "",
       });
       this.todoList.sort(function (a, b) {
         return a.createdAt - b.createdAt;
@@ -131,6 +143,10 @@ export default {
     },
     updateSwitch(index) {
       this.todoList[index].renderTypeShow = 0;
+      this.todoList[index].ex_comment = this.todoList[index].comment;
+      console.log(this.ex_comment);
+
+      this.$refs.input_ref_2.focus();
     },
     updateTodo(index) {
       if (
@@ -139,6 +155,16 @@ export default {
         //this.comment = comment;
         console.log(this.comment);
         //this.todoList[index].comment = this.comment;
+        this.todoList[index].renderTypeShow = 1;
+      }
+    },
+    discardChange(index) {
+      if (
+        confirm(
+          "No, " + index + " comment's change will be discarded. Proceed?"
+        )
+      ) {
+        this.todoList[index].comment = this.todoList[index].ex_comment;
         this.todoList[index].renderTypeShow = 1;
       }
     },
