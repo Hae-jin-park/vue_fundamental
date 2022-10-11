@@ -29,11 +29,11 @@
             class="bg-white rounded-lg border border-gray-200 w-full p-1 m-1 md:m-0 text-gray-900"
           >
             <li
-              class="px-1 md:px-0 py-2 border-x border-y border-gray-200 w-full flex flex-row"
+              class="px-1 md:px-0 py-2 my-2 border-x border-y border-radius border-blue-600 w-full flex flex-row"
               v-for="(todo, index) in todoList"
               :key="index"
             >
-              <div class="w-1/12">
+              <div class="w-1/6">
                 <!--NEW 표기부분-->
                 <p class="hidden">{{ todo.updateMode }}</p>
                 <img
@@ -44,7 +44,7 @@
                   "
                 />
               </div>
-              <div class="w-full">
+              <div class="w-3/4">
                 <!--todo Comment 부분 -->
                 <p v-show="todo.updateMode === false">{{ todo.comment }}</p>
                 <p v-show="todo.updateMode === true">
@@ -62,7 +62,7 @@
                 <!--수정버튼-->
                 <p v-show="todo.updateMode === false">
                   <button
-                    class="form-control block text-base font-normal w-full sm:w-full p-1 mx-auto text-white bg-orange-400 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-orange-400 focus:border-blue-600 focus:outline-none"
+                    class="form-control block text-base font-normal w-3/5 xs:w-full p-1 mx-auto text-white bg-orange-400 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-orange-400 focus:border-blue-600 focus:outline-none"
                     @click="updateSwitch(index)"
                   >
                     <img class="h-4 mx-auto" src="../assets/edit.png" />
@@ -70,7 +70,7 @@
                 </p>
                 <p v-show="todo.updateMode === true">
                   <button
-                    class="form-control block text-base font-normal w-full sm:w-full p-1 mx-auto text-white bg-green-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-green-600 focus:border-blue-600 focus:outline-none"
+                    class="form-control block text-base font-normal w-3/5 xs:w-full p-1 mx-auto text-white bg-green-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-green-600 focus:border-blue-600 focus:outline-none"
                     @click="updateTodo(index)"
                   >
                     <img class="h-4 mx-auto" src="../assets/check.png" />
@@ -81,7 +81,7 @@
                 <!--삭제버튼-->
                 <p v-show="todo.updateMode === false">
                   <button
-                    class="form-control block text-base font-normal w-full sm:w-full p-1 mx-auto text-white bg-red-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-red-600 focus:border-blue-600 focus:outline-none"
+                    class="form-control block text-base font-normal xs:w-full w-3/5 p-1 mx-auto text-white bg-red-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-red-600 focus:border-blue-600 focus:outline-none"
                     @click="deleteTodo(index)"
                   >
                     <img class="h-4 mx-auto" src="../assets/bin.png" />
@@ -89,7 +89,7 @@
                 </p>
                 <p v-show="todo.updateMode === true">
                   <button
-                    class="form-control block text-base font-normal sm:w-full w-full p-1 mx-auto text-white bg-red-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-red-600 focus:border-blue-600 focus:outline-none"
+                    class="form-control block text-base font-normal xs:w-full w-3/5 p-1 mx-auto text-white bg-red-600 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out focus:text-white focus:bg-red-600 focus:border-blue-600 focus:outline-none"
                     @click="discardChange(index)"
                   >
                     <img class="h-4 mx-auto" src="../assets/close.png" />
@@ -180,5 +180,8 @@ export default {
 <style>
 .todoList {
   border: 1px;
+}
+.border-radius {
+  border-radius: 30px;
 }
 </style>
