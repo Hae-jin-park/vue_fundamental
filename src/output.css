@@ -1416,14 +1416,14 @@ textarea.form-control.is-invalid {
   margin-bottom: 2.25rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mb-1 {
@@ -1496,10 +1496,6 @@ textarea.form-control.is-invalid {
 
 .w-3\/12 {
   width: 25%;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .w-3\/5 {
@@ -1829,7 +1825,7 @@ textarea.form-control.is-invalid {
 
 @media (max-width: 480px) {
   .xs\:w-full {
-    width: 100%;
+    width: 70%;
   }
 }
 
