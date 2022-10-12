@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <WatchComp />
+    <WatchComp2 />
   </div>
 </template>
 
 <script>
-import WatchComp from "./components/WatchComp.vue";
+import WatchComp2 from "./components/WatchComp2.vue";
 export default {
   name: "App",
   components: {
-    WatchComp,
+    WatchComp2,
   },
 };
 </script>
