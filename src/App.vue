@@ -1,13 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    {{ fullName }}<br />
+    <input type="text" v-model="lastName" /><br />
+    <input type="text" v-model="firstName" /><br />
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
-  components: {},
+  data() {
+    return {
+      lastName: "홍",
+      firstName: "길동",
+    };
+  },
+  computed: {
+    fullName() {
+      return this.lastName + this.firstName;
+    },
+  },
 };
 </script>
 
