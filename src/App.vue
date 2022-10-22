@@ -93,6 +93,9 @@ export default {
         fruit.label.includes(this.searchKeyword)
       );
     },
+
+    //watch는 변경값 바로 감지
+    watch: {},
   },
 };
 </script>
